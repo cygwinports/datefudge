@@ -1,0 +1,35 @@
+--- origsrc/datefudge-1.17/datefudge.c	2011-06-23 12:40:06.000000000 -0500
++++ src/datefudge-1.17/datefudge.c	2011-09-21 02:31:45.679852000 -0500
+@@ -19,6 +19,10 @@
+ #include <time.h>
+ #include <sys/time.h>
+ 
++#ifdef __CYGWIN__
++#define RTLD_NEXT dlopen("cygwin1.dll", RTLD_LAZY)
++#endif
++
+ static int fudge = 0;
+ static int dostatic = 0;
+ 
+@@ -64,8 +68,8 @@ time_t time(time_t *x) {
+     return res;
+ }
+ 
+-int __gettimeofday(struct timeval *x, struct timezone *y) {
+-    static int (*libc_gettimeofday)(struct timeval *, struct timezone *) = NULL;
++int gettimeofday(struct timeval *x, void *y) {
++    static int (*libc_gettimeofday)(struct timeval *, void *) = NULL;
+     int res;
+ 
+     if(!libc_gettimeofday)
+@@ -76,10 +80,6 @@ int __gettimeofday(struct timeval *x, st
+     return 0;
+ }
+ 
+-int gettimeofday(struct timeval *x, struct timezone *y) { 
+-    return __gettimeofday(x,y); 
+-}
+-
+ #ifndef __GNU__
+ 
+ int clock_gettime(clockid_t x, struct timespec *y) {
