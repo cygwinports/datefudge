@@ -1,0 +1,8 @@
+category: Utils
+requires: bash coreutils
+sdesc: "Fakes the system date"
+ldesc: "This program (and preload library) fakes the system date so that 
+programs think the wall clock is ... different. The faking is not 
+complete; timestamp on files are not affected in any way. This package 
+is useful if you want to test the date handling of your programs without 
+changing the system clock."
