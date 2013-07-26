@@ -50,3 +50,16 @@
 +}
 +
 +#endif
+--- origsrc/datefudge-1.18/datefudge.sh	2013-05-11 12:02:28.000000000 -0500
++++ src/datefudge-1.18/datefudge.sh	2013-07-26 07:55:54.202085000 -0500
+@@ -54,9 +54,8 @@ set_ld_environment()
+ 		exit 1;
+ 	fi
+ 	for path in "$@"; do
+-		add_ld_library_path "${path%/*}"
++		add_ld_preload "$path"
+ 	done
+-	add_ld_preload "$lib"
+ }
+ 
+ set_datefudge_vars()
