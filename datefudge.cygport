@@ -1,5 +1,5 @@
 NAME="datefudge"
-VERSION=1.18
+VERSION=1.20
 RELEASE=1
 CATEGORY="Utils"
 SUMMARY="Fakes the system date"
@@ -10,7 +10,7 @@ want to test the date handling of your programs without changing the system
 clock."
 HOMEPAGE="http://packages.debian.org/source/sid/datefudge"
 SRC_URI="mirror://debian/pool/main/${NAME:0:1}/${NAME}/${NAME}_${VERSION}.tar.gz"
-PATCH_URI="1.17-cygwin.patch"
+PATCH_URI="1.20-cygwin.patch"
 
 src_compile() {
 	lndirs
