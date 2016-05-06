@@ -1,5 +1,5 @@
 NAME="datefudge"
-VERSION=1.20
+VERSION=1.21
 RELEASE=1
 CATEGORY="Utils"
 SUMMARY="Fakes the system date"
@@ -9,7 +9,7 @@ timestamp on files are not affected in any way. This package is useful if you
 want to test the date handling of your programs without changing the system
 clock."
 HOMEPAGE="http://packages.debian.org/source/sid/datefudge"
-SRC_URI="mirror://debian/pool/main/${NAME:0:1}/${NAME}/${NAME}_${VERSION}.tar.gz"
+SRC_URI="mirror://debian/pool/main/${NAME:0:1}/${NAME}/${NAME}_${VERSION}.tar.xz"
 PATCH_URI="1.20-cygwin.patch"
 
 src_compile() {
